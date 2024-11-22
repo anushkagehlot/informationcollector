@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Milestone Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+  <h1 class="text-center">Milestone Form</h1>
+  <form th:action="@{/milestone/save}" th:object="${milestone}" method="post" class="needs-validation" novalidate>
+    <input type="hidden" th:field="*{id}"/>
+
+    <div class="mb-3">
+      <label for="milestoneTitle" class="form-label">Milestone Title:</label>
+      <input type="text" id="milestoneTitle" th:field="*{milestoneTitle}" class="form-control" required>
+      <div class="invalid-feedback">Please provide a milestone title.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="milestoneDescription" class="form-label">Milestone Description:</label>
+      <textarea id="milestoneDescription" th:field="*{milestoneDescription}" class="form-control" required></textarea>
+      <div class="invalid-feedback">Please provide a milestone description.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="milestoneDate" class="form-label">Milestone Date:</label>
+      <input type="date" id="milestoneDate" th:field="*{milestoneDate}" class="form-control" required>
+      <div class="invalid-feedback">Please select a milestone date.</div>
+    </div>
+
+    <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Bootstrap form validation
+  (function () {
+      'use strict';
+      const forms = document.querySelectorAll('.needs-validation');
+      Array.from(forms).forEach(form => {
+          form.addEventListener('submit', event => {
+              if (!form.checkValidity()) {
+                  event.preventDefault();
+                  event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+          }, false);
+      });
+  })();
+</script>
+</body>
+</html>

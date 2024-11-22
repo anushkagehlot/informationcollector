@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Proposal Details</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white">
+      <h1 class="h3 text-center">Proposal Details</h1>
+    </div>
+    <div class="card-body">
+      <p><strong>Title:</strong> <span th:text="${proposal.proposalTitle}"></span></p>
+      <p><strong>Description:</strong> <span th:text="${proposal.proposalDescription}"></span></p>
+      <p><strong>Submitted By:</strong> <span th:text="${proposal.submittedBy}"></span></p>
+      <p><strong>Submission Date:</strong> <span th:text="${proposal.submissionDate}"></span></p>
+    </div>
+    <div class="card-footer text-center">
+      <a href="/proposals" class="btn btn-primary">Back to Proposal List</a>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
